@@ -1,55 +1,49 @@
 // userController.js
-
-const UserList=[{
-    id:1,
-    name: "String",
-    email: "String",
-    password: "String",
-   
-},
-{
-    id:2,
-    name: "s",
-    email: "String",
-    password: "111",
-}
-]
-
-const id=111
-exports.upDateUser = (req, res) => {
-    const { id } = req.params
-    console.log(req.params);
-    const user = UserList.find(x => x.id === id)
-    if (!user) {
-        res.status(404).json({ massege: "emp not found" })
+const User = require('../models/users')
+const id = 111
+exports.upDateUser = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const  data  = req.body;
+    const result = await upDateUser(userId, data)
+    if (result === 'invalid') {
+      return res.status(404).json({ massege: "user not found" })
     }
-    const index = UserList.findIndex(x => x.id === id)
-    UserList.splice(index, 1)
-    res.send(UserList)
-    res.send(user)
-}
-
-exports.createUser = (req, res) => {
-    
-    const {name}=req.params
-    const newUser={
-        name:name,
-        email:"email",
-        password:"password",
-        id:id++,
+    if (!result) {
+      return res.status(404).json({ massege: "user not found" })
     }
+    res.json({ message: 'updated successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to update user' })
+  }
+};
+exports.addUser = async (req, res) => {
+  try {
+    const data = req.body
+    const result = await addUser(data);
+    if (result === 'invalid') {
+      res.status(400).json({ message: 'email not valid' });
 
-    UserList.push(newUser)
-    res.send(UserList)
-}
+    }
+    if (!result) {
+      res.status(400).json({ message: 'user not insert' });
 
-
-
-exports.deleteUser = (req, res) => {
-    const id = req.params.id
-
-    const index = UserList.findIndex(x => x.id === id)
-    UserList.splice(index, 1)
-    res.send(UserList)
-}
+    }
+    res.json({ message: "inserted successfully" })
+  } catch (error) {
+    res.status(500).json({ message: 'failed insert user' })
+  }
+};
+exports.deleteUser = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const result = await deleteUser(userId)
+    if (!result) {
+      res.status(404).json({ message: 'User not found' });
+    }
+    res.json({ message: 'User deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to delete user' });
+  }
+};
 
