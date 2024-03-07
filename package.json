@@ -1,7 +1,8 @@
 
 
 {
-  "name": "lsn2",
+{
+  "name": "gittask",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +12,16 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rachely1234/gitTask.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rachely1234/gitTask/issues"
+  },
+  "homepage": "https://github.com/rachely1234/gitTask#readme",
   "dependencies": {
     "express": "^4.18.3"
   }
