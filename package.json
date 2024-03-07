@@ -1,22 +1,22 @@
 {
-    "name": "gittask",
+    "name": "c",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node app.js"
     },
-    "author": "",
-    "license": "ISC",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/rachely1234/gitTask.git"
+        "url": "git+https://github.com/ayalashraiber/try.git"
     },
+    "author": "",
+    "license": "ISC",
     "bugs": {
-        "url": "https://github.com/rachely1234/gitTask/issues"
+        "url": "https://github.com/ayalashraiber/try/issues"
     },
-    "homepage": "https://github.com/rachely1234/gitTask#readme",
+    "homepage": "https://github.com/ayalashraiber/try#readme",
     "dependencies": {
         "express": "^4.18.3",
         "joi": "^17.12.2",
