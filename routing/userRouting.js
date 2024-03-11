@@ -1,11 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-const {upDateUser,createUser,deleteUser} =require('../controllers/userController')
+const {upDateUser,addUser,deleteUser} =require('../controllers/userController')
 
 router.put('/:id',upDateUser)
 //
-router.post('/:name',createUser)
+router.post('/:email',addUser)
 
 router.delete('/:id',deleteUser)
 

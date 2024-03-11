@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const config=require('./config')
+const config=require('../config')
 mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error(err));
@@ -15,7 +15,7 @@ const UsersSchema=new mongoose.Schema({
 module.exports=mongoose.model('Uswwer',UsersSchema)
 
 
-const joi=require('joi');
+const Joi=require('joi');
 
 const emailSchema = Joi.object({
     email: Joi.string().custom((value, helpers) => {

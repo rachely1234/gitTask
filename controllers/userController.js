@@ -20,6 +20,7 @@ exports.upDateUser = async (req, res) => {
 exports.addUser = async (req, res) => {
   try {
     const data = req.body
+    
     const result = await addUser(data);
     if (result === 'invalid') {
       res.status(400).json({ message: 'email not valid' });

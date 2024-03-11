@@ -3,7 +3,8 @@ var emailSchema=require("emailSchema")
 const {phone}=require('phone')
 
 exports.addUser=async(data)=>{
-   if(!this.emailSchema(data.email)){
+   
+    if(!this.emailSchema(data.email)){
     return 'invalid'
    }
    const result=await User.create(data);
